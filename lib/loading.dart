@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import './fluro/NavigatorUtil.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //加载页面
 class LoadingPage extends StatefulWidget {
@@ -12,12 +11,10 @@ class LoadingPage extends StatefulWidget {
 
 class _LoadingState extends State<LoadingPage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  String _token;
 
   void _setToken() async {
     await _prefs.then((SharedPreferences values) {
       String token = values.getString('token') ?? '';
-      _token = token;
       if (token == '') {
         NavigatorUtil.gotoHomePage(context);
       }

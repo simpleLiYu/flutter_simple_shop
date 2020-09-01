@@ -29,9 +29,9 @@ import 'package:luhenchang_plugin/time/data_time_utils/data_time.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HaoDanKuDetailItem extends StatefulWidget {
-  String goods_id;
+  final String goodsId;
 
-  HaoDanKuDetailItem({this.goods_id});
+  HaoDanKuDetailItem({this.goodsId});
 
   @override
   _HaoDanKuDetailItemState createState() => _HaoDanKuDetailItemState();
@@ -97,7 +97,6 @@ class _HaoDanKuDetailItemState extends State<HaoDanKuDetailItem>
 
   // 顶部选项卡被切换
   void tabOnChange(index) {
-    print("${index}");
     if (index == 0) {
       _scrollController.animateTo(0,
           duration: Duration(milliseconds: 600), curve: Curves.ease);
@@ -1014,7 +1013,7 @@ class _HaoDanKuDetailItemState extends State<HaoDanKuDetailItem>
   }
 
   Future<String> initDatas() async {
-    await getHaodankuDetailInfo(widget.goods_id).then((res) {
+    await getHaodankuDetailInfo(widget.goodsId).then((res) {
       Result result = Result.fromJson(json.decode(res.toString()));
       if (result.code == 200) {
         HdkGoodsDetailModel hdkGoodsDetailModel =

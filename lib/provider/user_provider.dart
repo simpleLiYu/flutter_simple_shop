@@ -112,7 +112,7 @@ class UserProvider with ChangeNotifier {
   }
 
   // 获取用户收藏的商品列表
-  void loadUserFavoriteGoodsListFun(int pageId) async {
+  Future<void> loadUserFavoriteGoodsListFun(int pageId) async {
     // 判断用户是否已经登录
     await UserUtil.loadUserInfo().then((user) async {
       if (user != null) {

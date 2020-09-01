@@ -5,10 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fsuper/fsuper.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../provider/goods_detail_provider.dart';
-import '../../modals/GoodsInfo.dart';
 
 //小部件
 import './swiper_widget.dart';
@@ -21,9 +19,9 @@ import './action_buttons.dart';
 import '../../widgets/no_data.dart';
 
 class DetailIndex extends StatefulWidget {
-  String goods_id;
+  final String goodsId;
 
-  DetailIndex({this.goods_id});
+  DetailIndex({this.goodsId});
 
   @override
   _DetailIndexState createState() => _DetailIndexState();
@@ -423,18 +421,18 @@ class _DetailIndexState extends State<DetailIndex> {
     return str;
   }
 
-  // 佣金计算
-  double _getCommissionNum() {
-    GoodsDetail goodsItem = goodsDetailProvider.goodInfo;
-    double rate = goodsItem.commissionRate;
-    print("${goodsItem.commissionType}---${goodsItem.commissionRate}");
-    double jiner = goodsItem.actualPrice * (rate / 100); // 实际获得金额
-    print("可获得佣金:${jiner}");
-    // 给用户的佣金
-    double userJiner = jiner * 0.7;
-    print("用户可获得佣金${userJiner}");
-    return userJiner;
-  }
+  // // 佣金计算
+  // double _getCommissionNum() {
+  //   GoodsDetail goodsItem = goodsDetailProvider.goodInfo;
+  //   double rate = goodsItem.commissionRate;
+  //   print("${goodsItem.commissionType}---${goodsItem.commissionRate}");
+  //   double jiner = goodsItem.actualPrice * (rate / 100); // 实际获得金额
+  //   print("可获得佣金:${jiner}");
+  //   // 给用户的佣金
+  //   double userJiner = jiner * 0.7;
+  //   print("用户可获得佣金${userJiner}");
+  //   return userJiner;
+  // }
 
   Widget _imgSwiper(String images,GoodsDetailProvider goodsDetailProvider) {
     if (images != null && images != "") {
@@ -460,12 +458,13 @@ class _DetailIndexState extends State<DetailIndex> {
 
   @override
   void didChangeDependencies() async {
+    super.didChangeDependencies();
     var goodsDetailProvider = Provider.of<GoodsDetailProvider>(context);
     var userProvider = Provider.of<UserProvider>(context);
 
     if (this.goodsDetailProvider != goodsDetailProvider) {
       this.goodsDetailProvider = goodsDetailProvider;
-      await goodsDetailProvider.getGoodsDetailInfo(widget.goods_id);
+      await goodsDetailProvider.getGoodsDetailInfo(widget.goodsId);
       await goodsDetailProvider.haveFav();
       setState(() {
         loadIng = false;

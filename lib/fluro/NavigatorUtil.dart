@@ -1,4 +1,3 @@
-import 'package:demo1/app.dart';
 import 'package:flutter/material.dart';
 import './Application.dart';
 import '../util/fluro_convert_util.dart';
@@ -14,7 +13,7 @@ class NavigatorUtil {
   // 跳转商品详情页方法
   static void gotoGoodsDetailPage(BuildContext context, String goodsId) {
     Application.router
-        .navigateTo(context, "${Routes.goodsDetail}?goods_id=${goodsId}");
+        .navigateTo(context, "${Routes.goodsDetail}?goodsId=$goodsId");
   }
 
 //  跳转到错误页面
@@ -57,7 +56,7 @@ class NavigatorUtil {
   }
 
   // 前往好单库商品详情页面
-  static void gotoHaodankuGoodsDetailPage(BuildContext context,String goods_id){
-    Application.router.navigateTo(context, Routes.hdkDetail+"?goods_id=${goods_id}");
+  static void gotoHaodankuGoodsDetailPage(BuildContext context,String goodsId){
+    Application.router.navigateTo(context, Routes.hdkDetail+"?goodsId=$goodsId");
   }
 }

@@ -22,10 +22,9 @@ class Routes {
   static String goodsList = '/goodsList'; //商品列表页面
   static String ddq = '/ddq'; //钉钉抢页面
 
-
   //_-------------------------用户相关页面
-  static String userLoginPgae= "/user_login";  // 用户登入页面
-  static String white = '/white';// 用户发布动态页面
+  static String userLoginPgae = "/user_login"; // 用户登入页面
+  static String white = '/white'; // 用户发布动态页面
 
   //----------------------------订单相关页面
   static String orderAdd = "/order_add"; // 绑定订单页面
@@ -38,14 +37,15 @@ class Routes {
     // 定义404
     router.notFoundHandler = new Handler(
         handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      print("页面404");
+      // TODO 跳转到404页面
+      return null;
     });
 
     // 定义首页路由
-    router.define(home, handler: HomeHandel);
-    router.define(goodsDetail, handler: GoodsDetailHandle);
-    router.define(goodsList, handler: GoodsListHandle);
-    router.define(ddq, handler: DdqHandle);
+    router.define(home, handler: homeHandel);
+    router.define(goodsDetail, handler: goodsDetailHandle);
+    router.define(goodsList, handler: goodsListHandle);
+    router.define(ddq, handler: ddqHandle);
     router.define(error, handler: errorHandle);
     router.define(userLoginPgae, handler: userLoginHandle);
     router.define(white, handler: whiteHandle);

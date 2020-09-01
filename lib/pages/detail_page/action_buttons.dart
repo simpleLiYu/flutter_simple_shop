@@ -8,10 +8,10 @@ import '../../provider/goods_detail_provider.dart';
 
 // 底部浮动操作按钮
 class ActionButtons extends StatelessWidget {
-  String goodsId;
+  final String goodsId;
   final getCallBack;
-  GoodsDetailProvider goodsDetailProvider;
-  UserProvider userProvider;
+  final GoodsDetailProvider goodsDetailProvider;
+  final UserProvider userProvider;
 
   ActionButtons(
       {this.goodsId,
@@ -37,8 +37,9 @@ class ActionButtons extends StatelessWidget {
             Container(
               width: ScreenUtil().setWidth(600),
               height: ScreenUtil().setHeight(200),
-              padding:
-                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20),vertical: ScreenUtil().setHeight(20)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: ScreenUtil().setWidth(20),
+                  vertical: ScreenUtil().setHeight(20)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +74,7 @@ class ActionButtons extends StatelessWidget {
                             // 添加收藏
                             await goodsDetailProvider.addGoodsFavoriteFun();
                             // 刷新收藏列表
-                            await userProvider.resetFavoriteData();
+                            userProvider.resetFavoriteData();
                             await userProvider.loadUserFavoriteGoodsListFun(1);
                           },
                           child: FSuper(
@@ -92,7 +93,7 @@ class ActionButtons extends StatelessWidget {
                       : InkWell(
                           onTap: () async {
                             await goodsDetailProvider.removeGoodsFavoriteFun();
-                            await userProvider.resetFavoriteData();
+                            userProvider.resetFavoriteData();
                             await userProvider.loadUserFavoriteGoodsListFun(1);
                           },
                           child: FSuper(
@@ -151,74 +152,6 @@ class ActionButtons extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildVersion1() {
-    return Container(
-      height: ScreenUtil().setHeight(250),
-      width: ScreenUtil().setWidth(1400),
-      padding: EdgeInsets.only(left: 10.0, right: 10.0),
-      decoration: BoxDecoration(
-          color: Colors.black12,
-          border: Border(top: BorderSide(color: Colors.black12))),
-      child: Row(
-        children: <Widget>[
-          Container(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.share),
-            ),
-          ),
-          Expanded(
-            child: goodsDetailProvider.isHaveFav == 0
-                ? InkWell(
-                    onTap: () async {
-                      // 添加收藏
-                      await goodsDetailProvider.addGoodsFavoriteFun();
-                      // 刷新收藏列表
-                      await userProvider.resetFavoriteData();
-                      await userProvider.loadUserFavoriteGoodsListFun(1);
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(12.0),
-                      color: Colors.black12,
-                      child: Center(
-                        child:
-                            Text("收藏", style: TextStyle(color: Colors.black)),
-                      ),
-                    ),
-                  )
-                : InkWell(
-                    onTap: () async {
-                      await goodsDetailProvider.removeGoodsFavoriteFun();
-                      await userProvider.resetFavoriteData();
-                      await userProvider.loadUserFavoriteGoodsListFun(1);
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(12.0),
-                      color: Colors.black12,
-                      child: Center(
-                        child:
-                            Text("取消收藏", style: TextStyle(color: Colors.black)),
-                      ),
-                    ),
-                  ),
-          ),
-          Expanded(
-            child: InkWell(
-              onTap: getCallBack,
-              child: Container(
-                margin: EdgeInsets.all(12.0),
-                color: Colors.pinkAccent,
-                child: Center(
-                  child: Text("领券购买", style: TextStyle(color: Colors.white)),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'package:fluro/fluro.dart';
 import '../../loading.dart';
 // 应用加载页面广告
 
-var LoadingHandle = new Handler(
+var loadingHandle = new Handler(
   handlerFunc: (BuildContext context,Map<String,List<String>> params){
     return new LoadingPage();
   }

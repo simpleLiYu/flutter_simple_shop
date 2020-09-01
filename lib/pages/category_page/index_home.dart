@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../modals/dtkCategorys.dart';
 import '../../provider/category_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import './left_widget.dart';
@@ -39,7 +38,7 @@ class _CategoryIndexPageState extends State<CategoryIndexPage> {
                               },
                               child: LeftWidgetItem(
                                   item: categoryProvider.categorys[index],
-                                  is_current: current == index),
+                                  isCurrent: current == index),
                             );
                           }),
                     ),

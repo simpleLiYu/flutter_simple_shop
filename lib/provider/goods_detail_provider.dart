@@ -15,8 +15,8 @@ class GoodsDetailProvider with ChangeNotifier {
   bool have = false; // 商品是否有效
 
   // 获取商品详情信息
-  getGoodsDetailInfo(String goods_id) async {
-    await getGoodsInfo({'id': goods_id}).then((res) {
+  getGoodsDetailInfo(String goodsId) async {
+    await getGoodsInfo({'id': goodsId}).then((res) {
       Result resultObj = ResultUtils.format(res);
       if (resultObj.code == 200) {
         var dtkCode = json.decode(resultObj.data.toString())["code"];
@@ -92,7 +92,7 @@ class GoodsDetailProvider with ChangeNotifier {
   }
 
   // 判断收藏按钮显示
-  void haveFav() async {
+  Future<void> haveFav() async {
     // 判断用户是否已经登录
     await UserUtil.loadUserInfo().then((user) async {
       if (user != null) {
@@ -116,8 +116,8 @@ class GoodsDetailProvider with ChangeNotifier {
   }
 
   // 获取优惠券信息
-  getPrivilegeLinkData(String goods_id) async {
-    await getPrivilegeLink({'goodsId': goods_id}).then((res) {
+  getPrivilegeLinkData(String goodsId) async {
+    await getPrivilegeLink({'goodsId': goodsId}).then((res) {
       Result resultObj = ResultUtils.format(res);
       if (resultObj.code == 200) {
         CouponInfo couponInfo =

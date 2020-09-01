@@ -1,9 +1,7 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:demo1/constant/color.dart';
 import 'package:demo1/provider/user_provider.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import './app.dart';
 import './provider/providers.dart';

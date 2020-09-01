@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:demo1/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,39 +54,6 @@ class _AppState extends State<App> {
     UserIndexHome()
   ];
 
-  //渲染某个菜单项
-  _popupMenuItem(String title, {String imagePath, IconData icon}) {
-    return PopupMenuItem(
-      child: Row(
-        children: <Widget>[
-          //判断是否使用图片路径还是图标
-          imagePath != null
-              ? Image.asset(
-                  imagePath,
-                  width: 32.0,
-                  height: 32.0,
-                )
-              : SizedBox(
-                  width: 32.0,
-                  height: 32.0,
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                  ),
-                ),
-          //显示菜单文本内容
-          Container(
-            padding: const EdgeInsets.only(left: 20.0),
-            child: Text(
-              title,
-              style: TextStyle(color: Colors.white),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
   Widget loadingWidget() {
     return new Center(
       child: SpinKitCircle(
@@ -140,7 +106,10 @@ class _AppState extends State<App> {
     );
 
     // 这里写是否显示或者影藏appbar(4--代表用户点击了我的页面)
-    if(_currentIndex==4 || _currentIndex==3 || _currentIndex==0 || _currentIndex==1){
+    if (_currentIndex == 4 ||
+        _currentIndex == 3 ||
+        _currentIndex == 0 ||
+        _currentIndex == 1) {
       widget = null;
     }
 
@@ -150,6 +119,7 @@ class _AppState extends State<App> {
   @override
   void initState() {
 //监听滚动事件，打印滚动位置
+    super.initState();
     mController.addListener(() {
       if (mController.offset < 250 && showToTopBtn) {
         setState(() {
@@ -184,8 +154,11 @@ class _AppState extends State<App> {
     return Scaffold(
       appBar: _buildAppBar(),
       // 滚动到顶部按钮
-      floatingActionButton: !showToTopBtn || _currentIndex == 2 || _currentIndex == 3 || _currentIndex==0
-      || _currentIndex==4
+      floatingActionButton: !showToTopBtn ||
+              _currentIndex == 2 ||
+              _currentIndex == 3 ||
+              _currentIndex == 0 ||
+              _currentIndex == 4
           ? null
           : FloatingActionButton(
               child: Icon(Icons.arrow_upward, color: Colors.white),
@@ -315,10 +288,12 @@ class _AppState extends State<App> {
       ),
     );
   }
+
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     UserProvider userProvider = Provider.of<UserProvider>(context);
-    if(this.userProvider!=userProvider){
+    if (this.userProvider != userProvider) {
       this.userProvider = userProvider;
       userProvider.loadUserInfo();
     }

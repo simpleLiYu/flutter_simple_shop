@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widgets/detail_simple_bborder_button.dart';
 
 class DetailImagesWidget extends StatelessWidget {
-  String images;
+  final String images;
 
   DetailImagesWidget({this.images});
 
@@ -52,7 +52,7 @@ class DetailImagesWidget extends StatelessWidget {
       for (var item in imagesArr) {
         bool hasHttpHead = item.toString().contains("https:");
         if (!hasHttpHead) {
-          item = "https:${item}";
+          item = "https:$item";
         }
         imagesWidget.add(ExtendedImage.network(
           item,
@@ -65,5 +65,6 @@ class DetailImagesWidget extends StatelessWidget {
       }
       return imagesWidget;
     }
+    return [];
   }
 }

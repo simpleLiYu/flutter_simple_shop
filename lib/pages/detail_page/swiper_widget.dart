@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widgets/extended_image.dart';
 
 class SwiperWidget extends StatelessWidget {
-  String images;
-  GoodsDetailProvider goodsDetailProvider;
+  final String images;
+  final GoodsDetailProvider goodsDetailProvider;
   SwiperWidget({this.images,this.goodsDetailProvider});
 
   List<String> imgArr;
