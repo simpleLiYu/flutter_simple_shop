@@ -19,7 +19,7 @@ class ExtendedImageWidget extends StatelessWidget {
     this.height,
     this.width,
     this.radius: BorderRadius.zero,
-    this.fit: BoxFit.fill,
+    this.fit: BoxFit.cover,
     this.knowSize: true,
   });
 

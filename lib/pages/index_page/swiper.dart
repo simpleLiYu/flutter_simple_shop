@@ -16,12 +16,12 @@ class IndexTopSwiper extends StatelessWidget {
   int height;
   CarouselProviderModal carouselProviderModal;
 
-  IndexTopSwiper({this.datum, this.carouselProviderModal,this.height});
+  IndexTopSwiper({this.datum, this.carouselProviderModal, this.height});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(height),// 430
+      height: ScreenUtil().setHeight(height), // 430
       padding: EdgeInsets.only(left: 10, right: 10),
       child: IndexPublicLayout(
         transparencyBg: true,
@@ -48,7 +48,7 @@ class IndexTopSwiper extends StatelessWidget {
           },
           itemBuilder: (BuildContext context, int index) {
             return ExtendedImageWidget(
-                src:datum[index].src,
+              src: datum[index].src,
               width: 1340,
               height: height.toDouble(),
               radius: BorderRadius.all(Radius.circular(10.0)),
