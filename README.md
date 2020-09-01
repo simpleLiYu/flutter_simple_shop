@@ -2,6 +2,14 @@
 这是我入门flutter写的项目,一边学一边写,肯定有很多不合理的地方,还望各位大佬勿喷!谢谢
 有问题也可以提交iss,或者加flutter学习群提问,看到都会回复的,群号1102781545
 
+# 部署
+1.修改服务器IP地址,在`lib\util\request.dart`文件中修改:
+```dart
+String formatUrl(String apiName) {
+  return LOCALHOST_RUL3 + apiName; // 把LOCALHOST_RUL3换成自己电脑的ip地址获取远程服务ip地址,可以在上方ip地址列表中定义成常量
+}
+```
+
 # 项目截图
 |一些|截图|预览|
 | --- | --- | --- |

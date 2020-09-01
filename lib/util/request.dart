@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:demo1/util/system_toast.dart';
 import 'package:dio/dio.dart';
 
+//----------------------------------一些地址
 final String BASE_URL = "http://itbug.shop:8081/api/"; // 网络请求
 final String LOCALHOST_RUL = "http://192.168.43.44:8081/api/"; // 本地请求
 final String LOCALHOST_RUL2 = "http://192.168.43.185:8081/api/"; // 本地请求2
@@ -17,9 +18,9 @@ Future post(apiName, {dynamic data}) {
   return request(apiName, data: data, method: "POST");
 }
 
-
+/// 访问服务器ip
 String formatUrl(String apiName) {
-  return LOCALHOST_RUL + apiName;
+  return LOCALHOST_RUL3 + apiName;
 }
 
 Future request(apiName, {dynamic data, String method}) async {
