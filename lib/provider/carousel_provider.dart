@@ -23,11 +23,13 @@ class CarouselProviderModal with ChangeNotifier{
     });
   }
 
+  // 轮播图切换时改变背景颜色
   void onChange(index){
     this.showCur = index;
-    this.curColor = getColor(this.carousels[index].remark);
-
-    notifyListeners();
+    if(this.carousels.isNotEmpty){
+      this.curColor = getColor(this.carousels[index].remark);
+      notifyListeners();
+    }
   }
 
   Color getColor(String rgb){
