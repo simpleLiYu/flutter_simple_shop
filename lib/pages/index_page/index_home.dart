@@ -11,7 +11,6 @@ import 'package:demo1/widgets/waterfall_goods_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_more_list/loading_more_list.dart';
-import 'package:flutter_alibc/flutter_alibc.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
 import 'package:flutter/widgets.dart' hide NestedScrollView;
@@ -57,8 +56,8 @@ class _IndexHomeState extends State<IndexHome>
   }
 
   void _initAliBC() async {
-    var result = await FlutterAlibc.initAlibc(version:"1.0.0",appName:"典典的小卖部");
-    print("阿里百川初始化:${result.errorCode}");
+    // var result = await FlutterAlibc.initAlibc(version:"1.0.0",appName:"典典的小卖部");
+    // print("阿里百川初始化:${result.errorCode}");
   }
 
   @override
@@ -262,8 +261,8 @@ class _IndexHomeState extends State<IndexHome>
                 }),
                 MenuIcon(1,onTap: () async {
                   print("正在唤醒淘宝登录");
-                  var result = await FlutterAlibc.loginTaoBao();
-                  print("获取到淘宝用户信息:${result.data.openSid}");
+                  // var result = await FlutterAlibc.loginTaoBao();
+                  // print("获取到淘宝用户信息:${result.data.openSid}");
                 }
                 ,),
                 MenuIcon(2),
