@@ -10,15 +10,22 @@ class CarouselProviderModal with ChangeNotifier{
 
   getCarousel() async{
    await getCarouselData({'type': 'APP-PLUS', 'view': 'index'}).then((res) {
+     if(res==null) return;
       final data = json.decode(res.toString());
-      final objRes = CarouselRes.fromJson(data);
-      if(objRes.code==200){
-        carousels = objRes.data;
-        onChange(0);
-        notifyListeners();
-      }else{
-        // 获取失败
-        print("获取轮播图失败");
+      try{
+        final objRes = CarouselRes.fromJson(data);
+        if(objRes.code==200){
+          carousels = objRes.data;
+          onChange(0);
+          notifyListeners();
+        }else{
+          // 获取失败
+          print("获取轮播图失败");
+        }
+      }catch(e,s){
+          print(e);
+          print(s);
+          print("获取轮播图失败");
       }
     });
   }
