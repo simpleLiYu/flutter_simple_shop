@@ -30,7 +30,7 @@ class _HeaderMenuState extends State<HeaderMenu>
   ];
   final ids = [-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  var current_index = 0; // 当前选中id
+  var currentIndex = 0; // 当前选中id
 
   TabController _tabController;
 

@@ -4,9 +4,9 @@
 
 import 'dart:convert';
 
-GoodsInfo GoodsInfoFromJson(String str) => GoodsInfo.fromJson(json.decode(str));
+GoodsInfo goodsInfoFromJson(String str) => GoodsInfo.fromJson(json.decode(str));
 
-String GoodsInfoToJson(GoodsInfo data) => json.encode(data.toJson());
+String goodsInfoToJson(GoodsInfo data) => json.encode(data.toJson());
 
 class GoodsInfo {
   int time;

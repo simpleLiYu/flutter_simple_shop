@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:demo1/modals/Result.dart';
 import 'package:demo1/util/result_obj_util.dart';
-import 'package:flutter/material.dart';
 import 'package:demo1/modals/NineGoodsData.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 import '../util/request_service.dart';
@@ -31,7 +30,7 @@ class JiuJiuRepository extends LoadingMoreBase<NineGoodsItem> {
 
   @override
   Future<bool> loadData([bool isloadMoreAction = false]) async {
-    print("进来了;${cid}");
+    print("进来了;$cid");
     bool isSuccess = false; // 是否加载成功
     await getNineGoods({"pageId": pageIndex, "nineCid": cid}).then((res) {
       Result result = ResultUtils.format(res);

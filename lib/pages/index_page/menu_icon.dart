@@ -1,11 +1,10 @@
 import 'package:demo1/util/system_toast.dart';
 import 'package:demo1/widgets/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuIcon extends StatelessWidget {
-  int index;
-  Function onTap;
+  final int index;
+  final Function onTap;
 
   MenuIcon(this.index,{this.onTap});
 

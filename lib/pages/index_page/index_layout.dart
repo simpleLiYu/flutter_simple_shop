@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IndexPublicLayout extends StatelessWidget {
-  Widget child;
-  bool transparencyBg; //是否透明背景
-  EdgeInsetsGeometry padding;
-  EdgeInsetsGeometry margin;
+  final Widget child;
+  final bool transparencyBg; //是否透明背景
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
 
   IndexPublicLayout(
       {this.child, this.transparencyBg, this.padding, this.margin});

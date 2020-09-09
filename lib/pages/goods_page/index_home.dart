@@ -22,11 +22,11 @@ import '../../repository/GoodsListRepository.dart';
 ///
 
 class GoodsListPage extends StatefulWidget {
-  String subcid;
-  String cids;
-  String brand;
-  String title;
-  String showCates; // 是否显示分类选择
+  final String subcid;
+  final String cids;
+  final String brand;
+  final String title;
+  final String showCates; // 是否显示分类选择
   GoodsListPage(
       {this.subcid, this.cids, this.brand, this.title, this.showCates = "0"});
 
@@ -172,14 +172,13 @@ class _GoodsListPageState extends State<GoodsListPage>
   Widget buildSubCategoryItem(Subcategory subcategory) {
     return InkWell(
       onTap: () {
-        print("${currentSubCategory}---${subcategory.subcid}");
-        if (subcategory.subcid != currentSubCategory) {
+        if (subcategory.subcid != int.parse(currentSubCategory)) {
           setState(() {
             currentSubCategory = subcategory.subcid.toString();
             currentMainCategory = "";
             this.goodsListRepository = GoodsListRepository(
                 cids: "",
-                g_sort: "0",
+                gSort: "0",
                 subcid: subcategory.subcid.toString(),
                 brand: "");
           });
@@ -229,7 +228,7 @@ class _GoodsListPageState extends State<GoodsListPage>
               currentSubCategory = "";
               this.goodsListRepository = GoodsListRepository(
                   cids: categorys[index - 1].cid.toString(),
-                  g_sort: "0",
+                  gSort: "0",
                   subcid: "",
                   brand: "");
             });
@@ -257,11 +256,12 @@ class _GoodsListPageState extends State<GoodsListPage>
 
   @override
   void initState() {
+    super.initState();
     goodsListRepository = GoodsListRepository(
         cids: widget.subcid!=""  ? "" : widget.cids,
         brand: widget.brand,
         subcid: widget.subcid,
-        g_sort: "0");
+        gSort: "0");
     _tabController = TabController(vsync: this, length: 4);
     categorysTabBarController = TabController(vsync: this, length: 1);
     setState(() {
@@ -331,7 +331,7 @@ class _GoodsListPageState extends State<GoodsListPage>
           cids: currentMainCategory,
           brand: widget.brand,
           subcid: currentSubCategory,
-          g_sort: "${index}");
+          gSort: "$index");
       this.goodsListRepository.refresh(true);
       setState(() {
         priceSortType = 0;
@@ -344,7 +344,7 @@ class _GoodsListPageState extends State<GoodsListPage>
           cids: currentMainCategory,
           brand: widget.brand,
           subcid: currentSubCategory,
-          g_sort: "4");
+          gSort: "4");
       this.goodsListRepository.refresh(true);
       setState(() {
         priceSortType = 1;
@@ -358,7 +358,7 @@ class _GoodsListPageState extends State<GoodsListPage>
           cids: currentMainCategory,
           brand: widget.brand,
           subcid: currentSubCategory,
-          g_sort: "${index}");
+          gSort: "$index");
       this.goodsListRepository.refresh(true);
     }
   }
@@ -383,15 +383,15 @@ class _GoodsListPageState extends State<GoodsListPage>
     //    print("------------");
     var offset = info?.dragOffset ?? 0.0;
     var mode = info?.mode;
-    Widget refreshWiget = Container();
-    //it should more than 18, so that RefreshProgressIndicator can be shown fully
-    if (info?.refreshWiget != null &&
-        offset > 18.0 &&
-        mode != RefreshIndicatorMode.error) {
-      refreshWiget = info.refreshWiget;
-    }
+    // Widget refreshWiget = Container();
+    // //it should more than 18, so that RefreshProgressIndicator can be shown fully
+    // if (info?.refreshWiget != null &&
+    //     offset > 18.0 &&
+    //     mode != RefreshIndicatorMode.error) {
+    //   refreshWiget = info.refreshWiget;
+    // }
 
-    Widget child = null;
+    Widget child;
     if (mode == RefreshIndicatorMode.error) {
       child = GestureDetector(
           onTap: () {

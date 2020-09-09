@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:extended_image/extended_image.dart';
 import 'package:extended_text_field/extended_text_field.dart';
 import 'package:flutter/material.dart';

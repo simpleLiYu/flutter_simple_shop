@@ -51,11 +51,11 @@ class IndexGridSpecialDataModel {
 class BottomThree {
   BottomThree({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -67,27 +67,27 @@ class BottomThree {
 
 
   return BottomThree(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -97,261 +97,261 @@ class BottomThree {
 }
 class GoodsInfo {
   GoodsInfo({
-    this.itempic_copy,
-    this.itemendprice,
-    this.todaysale,
-    this.itemprice,
+    this.userid,
+    this.productId,
+    this.itemid,
     this.itemtitle,
-    this.shoptype,
-    this.tktype,
-    this.fqcat,
-    this.tkrates,
+    this.itemdesc,
+    this.itemprice,
+    this.sellerId,
+    this.isLive,
+    this.couponnum,
+    this.isquality,
+    this.sellerName,
+    this.shopname,
     this.cuntao,
-    this.tkmoney,
-    this.couponurl,
-    this.couponmoney,
+    this.activityid,
+    this.originalImg,
+    this.couponexplain,
+    this.deposit,
+    this.activityType,
+    this.dxRates,
+    this.isExplosion,
+    this.itempicCopy,
     this.itemsale2,
     this.couponsurplus,
+    this.sellernick,
+    this.sonCategory,
+    this.fqcat,
+    this.itemendprice,
+    this.taobaoImage,
+    this.tktype,
+    this.isBrand,
+    this.downType,
+    this.couponurl,
+    this.me,
+    this.tkurl,
+    this.endTime,
+    this.couponmoney,
+    this.isShipping,
+    this.todaysale,
     this.couponreceive,
-    this.couponnum,
-    this.itemid,
-    this.seller_id,
-    this.product_id,
-    this.itemdesc,
+    this.startTime,
+    this.discount,
+    this.videoid,
+    this.guideArticle,
+    this.tkmoney,
+    this.starttime,
+    this.shopid,
+    this.shoptype,
+    this.onlineUsers,
+    this.planlink,
+    this.reportStatus,
     this.itemsale,
     this.itempic,
-    this.seller_name,
-    this.activity_type,
-    this.videoid,
-    this.isquality,
-    this.start_time,
-    this.couponexplain,
-    this.is_shipping,
-    this.activityid,
-    this.report_status,
-    this.starttime,
-    this.end_time,
-    this.planlink,
-    this.shopid,
-    this.general_index,
-    this.is_explosion,
-    this.original_img,
-    this.deposit,
-    this.is_live,
-    this.guide_article,
-    this.tkurl,
-    this.dx_rates,
-    this.taobao_image,
-    this.discount,
-    this.sellernick,
-    this.shopname,
+    this.tkrates,
     this.couponendtime,
-    this.online_users,
-    this.me,
-    this.down_type,
-    this.son_category,
-    this.is_brand,
-    this.userid,
-    this.couponstarttime,
-    this.coupon_condition,
-    this.couponreceive2,
+    this.generalIndex,
     this.itemshorttitle,
+    this.couponreceive2,
     this.todaycouponreceive,
-    this.original_article,
-    this.deposit_deduct,
+    this.couponstarttime,
+    this.couponCondition,
+    this.originalArticle,
+    this.depositDeduct,
   });
 
 
-  factory GoodsInfo.fromJson(Map<String, dynamic> jsonRes)=>jsonRes == null? null:GoodsInfo(itempic_copy : asT<String>(jsonRes['itempic_copy']),
-    itemendprice : asT<String>(jsonRes['itemendprice']),
-    todaysale : asT<String>(jsonRes['todaysale']),
-    itemprice : asT<String>(jsonRes['itemprice']),
+  factory GoodsInfo.fromJson(Map<String, dynamic> jsonRes)=>jsonRes == null? null:GoodsInfo(userid : asT<String>(jsonRes['userid']),
+    productId : asT<String>(jsonRes['product_id']),
+    itemid : asT<String>(jsonRes['itemid']),
     itemtitle : asT<String>(jsonRes['itemtitle']),
-    shoptype : asT<String>(jsonRes['shoptype']),
-    tktype : asT<String>(jsonRes['tktype']),
-    fqcat : asT<String>(jsonRes['fqcat']),
-    tkrates : asT<String>(jsonRes['tkrates']),
+    itemdesc : asT<String>(jsonRes['itemdesc']),
+    itemprice : asT<String>(jsonRes['itemprice']),
+    sellerId : asT<String>(jsonRes['seller_id']),
+    isLive : asT<String>(jsonRes['is_live']),
+    couponnum : asT<String>(jsonRes['couponnum']),
+    isquality : asT<String>(jsonRes['isquality']),
+    sellerName : asT<String>(jsonRes['seller_name']),
+    shopname : asT<String>(jsonRes['shopname']),
     cuntao : asT<String>(jsonRes['cuntao']),
-    tkmoney : asT<String>(jsonRes['tkmoney']),
-    couponurl : asT<String>(jsonRes['couponurl']),
-    couponmoney : asT<String>(jsonRes['couponmoney']),
+    activityid : asT<String>(jsonRes['activityid']),
+    originalImg : asT<String>(jsonRes['original_img']),
+    couponexplain : asT<String>(jsonRes['couponexplain']),
+    deposit : asT<String>(jsonRes['deposit']),
+    activityType : asT<String>(jsonRes['activity_type']),
+    dxRates : asT<String>(jsonRes['dx_rates']),
+    isExplosion : asT<String>(jsonRes['is_explosion']),
+    itempicCopy : asT<String>(jsonRes['itempic_copy']),
     itemsale2 : asT<String>(jsonRes['itemsale2']),
     couponsurplus : asT<String>(jsonRes['couponsurplus']),
+    sellernick : asT<String>(jsonRes['sellernick']),
+    sonCategory : asT<String>(jsonRes['son_category']),
+    fqcat : asT<String>(jsonRes['fqcat']),
+    itemendprice : asT<String>(jsonRes['itemendprice']),
+    taobaoImage : asT<String>(jsonRes['taobao_image']),
+    tktype : asT<String>(jsonRes['tktype']),
+    isBrand : asT<String>(jsonRes['is_brand']),
+    downType : asT<String>(jsonRes['down_type']),
+    couponurl : asT<String>(jsonRes['couponurl']),
+    me : asT<String>(jsonRes['me']),
+    tkurl : asT<String>(jsonRes['tkurl']),
+    endTime : asT<String>(jsonRes['end_time']),
+    couponmoney : asT<String>(jsonRes['couponmoney']),
+    isShipping : asT<String>(jsonRes['is_shipping']),
+    todaysale : asT<String>(jsonRes['todaysale']),
     couponreceive : asT<String>(jsonRes['couponreceive']),
-    couponnum : asT<String>(jsonRes['couponnum']),
-    itemid : asT<String>(jsonRes['itemid']),
-    seller_id : asT<String>(jsonRes['seller_id']),
-    product_id : asT<String>(jsonRes['product_id']),
-    itemdesc : asT<String>(jsonRes['itemdesc']),
+    startTime : asT<String>(jsonRes['start_time']),
+    discount : asT<String>(jsonRes['discount']),
+    videoid : asT<String>(jsonRes['videoid']),
+    guideArticle : asT<String>(jsonRes['guide_article']),
+    tkmoney : asT<String>(jsonRes['tkmoney']),
+    starttime : asT<String>(jsonRes['starttime']),
+    shopid : asT<String>(jsonRes['shopid']),
+    shoptype : asT<String>(jsonRes['shoptype']),
+    onlineUsers : asT<String>(jsonRes['online_users']),
+    planlink : asT<String>(jsonRes['planlink']),
+    reportStatus : asT<String>(jsonRes['report_status']),
     itemsale : asT<String>(jsonRes['itemsale']),
     itempic : asT<String>(jsonRes['itempic']),
-    seller_name : asT<String>(jsonRes['seller_name']),
-    activity_type : asT<String>(jsonRes['activity_type']),
-    videoid : asT<String>(jsonRes['videoid']),
-    isquality : asT<String>(jsonRes['isquality']),
-    start_time : asT<String>(jsonRes['start_time']),
-    couponexplain : asT<String>(jsonRes['couponexplain']),
-    is_shipping : asT<String>(jsonRes['is_shipping']),
-    activityid : asT<String>(jsonRes['activityid']),
-    report_status : asT<String>(jsonRes['report_status']),
-    starttime : asT<String>(jsonRes['starttime']),
-    end_time : asT<String>(jsonRes['end_time']),
-    planlink : asT<String>(jsonRes['planlink']),
-    shopid : asT<String>(jsonRes['shopid']),
-    general_index : asT<String>(jsonRes['general_index']),
-    is_explosion : asT<String>(jsonRes['is_explosion']),
-    original_img : asT<String>(jsonRes['original_img']),
-    deposit : asT<String>(jsonRes['deposit']),
-    is_live : asT<String>(jsonRes['is_live']),
-    guide_article : asT<String>(jsonRes['guide_article']),
-    tkurl : asT<String>(jsonRes['tkurl']),
-    dx_rates : asT<String>(jsonRes['dx_rates']),
-    taobao_image : asT<String>(jsonRes['taobao_image']),
-    discount : asT<String>(jsonRes['discount']),
-    sellernick : asT<String>(jsonRes['sellernick']),
-    shopname : asT<String>(jsonRes['shopname']),
+    tkrates : asT<String>(jsonRes['tkrates']),
     couponendtime : asT<String>(jsonRes['couponendtime']),
-    online_users : asT<String>(jsonRes['online_users']),
-    me : asT<String>(jsonRes['me']),
-    down_type : asT<String>(jsonRes['down_type']),
-    son_category : asT<String>(jsonRes['son_category']),
-    is_brand : asT<String>(jsonRes['is_brand']),
-    userid : asT<String>(jsonRes['userid']),
-    couponstarttime : asT<String>(jsonRes['couponstarttime']),
-    coupon_condition : asT<String>(jsonRes['coupon_condition']),
-    couponreceive2 : asT<String>(jsonRes['couponreceive2']),
+    generalIndex : asT<String>(jsonRes['general_index']),
     itemshorttitle : asT<String>(jsonRes['itemshorttitle']),
+    couponreceive2 : asT<String>(jsonRes['couponreceive2']),
     todaycouponreceive : asT<String>(jsonRes['todaycouponreceive']),
-    original_article : asT<String>(jsonRes['original_article']),
-    deposit_deduct : asT<String>(jsonRes['deposit_deduct']),
+    couponstarttime : asT<String>(jsonRes['couponstarttime']),
+    couponCondition : asT<String>(jsonRes['coupon_condition']),
+    originalArticle : asT<String>(jsonRes['original_article']),
+    depositDeduct : asT<String>(jsonRes['deposit_deduct']),
   );
 
-  String itempic_copy;
-  String itemendprice;
-  String todaysale;
-  String itemprice;
+  String userid;
+  String productId;
+  String itemid;
   String itemtitle;
-  String shoptype;
-  String tktype;
-  String fqcat;
-  String tkrates;
+  String itemdesc;
+  String itemprice;
+  String sellerId;
+  String isLive;
+  String couponnum;
+  String isquality;
+  String sellerName;
+  String shopname;
   String cuntao;
-  String tkmoney;
-  String couponurl;
-  String couponmoney;
+  String activityid;
+  String originalImg;
+  String couponexplain;
+  String deposit;
+  String activityType;
+  String dxRates;
+  String isExplosion;
+  String itempicCopy;
   String itemsale2;
   String couponsurplus;
+  String sellernick;
+  String sonCategory;
+  String fqcat;
+  String itemendprice;
+  String taobaoImage;
+  String tktype;
+  String isBrand;
+  String downType;
+  String couponurl;
+  String me;
+  String tkurl;
+  String endTime;
+  String couponmoney;
+  String isShipping;
+  String todaysale;
   String couponreceive;
-  String couponnum;
-  String itemid;
-  String seller_id;
-  String product_id;
-  String itemdesc;
+  String startTime;
+  String discount;
+  String videoid;
+  String guideArticle;
+  String tkmoney;
+  String starttime;
+  String shopid;
+  String shoptype;
+  String onlineUsers;
+  String planlink;
+  String reportStatus;
   String itemsale;
   String itempic;
-  String seller_name;
-  String activity_type;
-  String videoid;
-  String isquality;
-  String start_time;
-  String couponexplain;
-  String is_shipping;
-  String activityid;
-  String report_status;
-  String starttime;
-  String end_time;
-  String planlink;
-  String shopid;
-  String general_index;
-  String is_explosion;
-  String original_img;
-  String deposit;
-  String is_live;
-  String guide_article;
-  String tkurl;
-  String dx_rates;
-  String taobao_image;
-  String discount;
-  String sellernick;
-  String shopname;
+  String tkrates;
   String couponendtime;
-  String online_users;
-  String me;
-  String down_type;
-  String son_category;
-  String is_brand;
-  String userid;
-  String couponstarttime;
-  String coupon_condition;
-  String couponreceive2;
+  String generalIndex;
   String itemshorttitle;
+  String couponreceive2;
   String todaycouponreceive;
-  String original_article;
-  String deposit_deduct;
+  String couponstarttime;
+  String couponCondition;
+  String originalArticle;
+  String depositDeduct;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-    'itempic_copy': itempic_copy,
-    'itemendprice': itemendprice,
-    'todaysale': todaysale,
-    'itemprice': itemprice,
+    'userid': userid,
+    'product_id': productId,
+    'itemid': itemid,
     'itemtitle': itemtitle,
-    'shoptype': shoptype,
-    'tktype': tktype,
-    'fqcat': fqcat,
-    'tkrates': tkrates,
+    'itemdesc': itemdesc,
+    'itemprice': itemprice,
+    'seller_id': sellerId,
+    'is_live': isLive,
+    'couponnum': couponnum,
+    'isquality': isquality,
+    'seller_name': sellerName,
+    'shopname': shopname,
     'cuntao': cuntao,
-    'tkmoney': tkmoney,
-    'couponurl': couponurl,
-    'couponmoney': couponmoney,
+    'activityid': activityid,
+    'original_img': originalImg,
+    'couponexplain': couponexplain,
+    'deposit': deposit,
+    'activity_type': activityType,
+    'dx_rates': dxRates,
+    'is_explosion': isExplosion,
+    'itempic_copy': itempicCopy,
     'itemsale2': itemsale2,
     'couponsurplus': couponsurplus,
+    'sellernick': sellernick,
+    'son_category': sonCategory,
+    'fqcat': fqcat,
+    'itemendprice': itemendprice,
+    'taobao_image': taobaoImage,
+    'tktype': tktype,
+    'is_brand': isBrand,
+    'down_type': downType,
+    'couponurl': couponurl,
+    'me': me,
+    'tkurl': tkurl,
+    'end_time': endTime,
+    'couponmoney': couponmoney,
+    'is_shipping': isShipping,
+    'todaysale': todaysale,
     'couponreceive': couponreceive,
-    'couponnum': couponnum,
-    'itemid': itemid,
-    'seller_id': seller_id,
-    'product_id': product_id,
-    'itemdesc': itemdesc,
+    'start_time': startTime,
+    'discount': discount,
+    'videoid': videoid,
+    'guide_article': guideArticle,
+    'tkmoney': tkmoney,
+    'starttime': starttime,
+    'shopid': shopid,
+    'shoptype': shoptype,
+    'online_users': onlineUsers,
+    'planlink': planlink,
+    'report_status': reportStatus,
     'itemsale': itemsale,
     'itempic': itempic,
-    'seller_name': seller_name,
-    'activity_type': activity_type,
-    'videoid': videoid,
-    'isquality': isquality,
-    'start_time': start_time,
-    'couponexplain': couponexplain,
-    'is_shipping': is_shipping,
-    'activityid': activityid,
-    'report_status': report_status,
-    'starttime': starttime,
-    'end_time': end_time,
-    'planlink': planlink,
-    'shopid': shopid,
-    'general_index': general_index,
-    'is_explosion': is_explosion,
-    'original_img': original_img,
-    'deposit': deposit,
-    'is_live': is_live,
-    'guide_article': guide_article,
-    'tkurl': tkurl,
-    'dx_rates': dx_rates,
-    'taobao_image': taobao_image,
-    'discount': discount,
-    'sellernick': sellernick,
-    'shopname': shopname,
+    'tkrates': tkrates,
     'couponendtime': couponendtime,
-    'online_users': online_users,
-    'me': me,
-    'down_type': down_type,
-    'son_category': son_category,
-    'is_brand': is_brand,
-    'userid': userid,
-    'couponstarttime': couponstarttime,
-    'coupon_condition': coupon_condition,
-    'couponreceive2': couponreceive2,
+    'general_index': generalIndex,
     'itemshorttitle': itemshorttitle,
+    'couponreceive2': couponreceive2,
     'todaycouponreceive': todaycouponreceive,
-    'original_article': original_article,
-    'deposit_deduct': deposit_deduct,
+    'couponstarttime': couponstarttime,
+    'coupon_condition': couponCondition,
+    'original_article': originalArticle,
+    'deposit_deduct': depositDeduct,
   };
 
   @override
@@ -364,11 +364,11 @@ class GoodsInfo {
 class BottomFour {
   BottomFour({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -380,27 +380,27 @@ class BottomFour {
 
 
   return BottomFour(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -410,15 +410,14 @@ class BottomFour {
 }
 
 
-
 class BottomOne {
   BottomOne({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -430,27 +429,27 @@ class BottomOne {
 
 
   return BottomOne(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -460,15 +459,14 @@ class BottomOne {
 }
 
 
-
 class LeftTopOne {
   LeftTopOne({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -480,27 +478,27 @@ class LeftTopOne {
 
 
   return LeftTopOne(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -510,15 +508,14 @@ class LeftTopOne {
 }
 
 
-
 class RightTopOne {
   RightTopOne({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -530,27 +527,27 @@ class RightTopOne {
 
 
   return RightTopOne(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -560,15 +557,14 @@ class RightTopOne {
 }
 
 
-
 class BottomTwo {
   BottomTwo({
     this.tag,
-    this.title,
     this.router,
     this.tagtextColor,
-    this.goods,
     this.tagBgColor,
+    this.goods,
+    this.title,
   });
 
 
@@ -580,27 +576,27 @@ class BottomTwo {
 
 
   return BottomTwo(tag : asT<String>(jsonRes['tag']),
-    title : asT<String>(jsonRes['title']),
     router : asT<String>(jsonRes['router']),
     tagtextColor : asT<String>(jsonRes['tagtextColor']),
-    goods:goods,
     tagBgColor : asT<String>(jsonRes['tagBgColor']),
+    goods:goods,
+    title : asT<String>(jsonRes['title']),
   );}
 
   String tag;
-  String title;
   String router;
   String tagtextColor;
-  List<GoodsInfo> goods;
   String tagBgColor;
+  List<GoodsInfo> goods;
+  String title;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'tag': tag,
-    'title': title,
     'router': router,
     'tagtextColor': tagtextColor,
-    'goods': goods,
     'tagBgColor': tagBgColor,
+    'goods': goods,
+    'title': title,
   };
 
   @override
@@ -608,7 +604,6 @@ class BottomTwo {
     return json.encode(this);
   }
 }
-
 
 
 

@@ -9,8 +9,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_custom_dialog/flutter_custom_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fsuper/fsuper.dart';
 import 'package:provider/provider.dart';
 import 'header/index.dart';
 
@@ -117,12 +115,6 @@ class _IndexHomeState extends State<UserIndexHome> {
     );
   }
 
-  AppBar _buildAppBar() {
-    return AppBar(
-      title: Text("我的"),
-      centerTitle: true,
-    );
-  }
 
   Widget _buildHeaderWidget() {
     Widget widget = HeaderIndex(userProvider.user);
@@ -132,6 +124,7 @@ class _IndexHomeState extends State<UserIndexHome> {
 
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     UserProvider userProvider = Provider.of<UserProvider>(context);
     if (this.userProvider != userProvider) {
       this.userProvider = userProvider;

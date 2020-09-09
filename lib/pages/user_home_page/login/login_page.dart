@@ -200,6 +200,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
 
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     UserProvider userProvider =  Provider.of<UserProvider>(context);
     if(this.userProvider!=userProvider){
       this.userProvider = userProvider;

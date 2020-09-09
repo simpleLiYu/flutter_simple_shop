@@ -1,4 +1,3 @@
-import 'package:flustars/flustars.dart' hide ScreenUtil;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:extended_image/extended_image.dart';
@@ -7,12 +6,12 @@ import '../util/image_util.dart';
 
 // 图像扩展组件
 class ExtendedImageWidget extends StatelessWidget {
-  String src;
-  double height;
-  double width;
-  BorderRadius radius;
-  BoxFit fit;
-  bool knowSize;
+  final String src;
+  final double height;
+  final double width;
+  final BorderRadius radius;
+  final BoxFit fit;
+  final bool knowSize;
 
   ExtendedImageWidget({
     this.src,

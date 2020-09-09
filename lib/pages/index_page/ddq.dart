@@ -146,7 +146,7 @@ class _DDQWidgetState extends State<DDQWidget> {
               children: <Widget>[
                 Container(
                   child: Text(
-                    '￥${price}',
+                    '￥$price',
                     style: TextStyle(
                         color: Colors.red, fontSize: ScreenUtil().setSp(50)),
                   ),
@@ -155,7 +155,7 @@ class _DDQWidgetState extends State<DDQWidget> {
                 SizedBox(width: ScreenUtil().setWidth(20)),
                 Expanded(
                   child: Text(
-                    "￥${orginPrice}",
+                    "￥$orginPrice",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -174,6 +174,7 @@ class _DDQWidgetState extends State<DDQWidget> {
 
   @override
   void didChangeDependencies() async {
+    super.didChangeDependencies();
     DdqProvider ddqProvider = Provider.of<DdqProvider>(context);
     if (this.ddqProvider != ddqProvider) {
       this.ddqProvider = ddqProvider;

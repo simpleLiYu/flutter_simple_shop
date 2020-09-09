@@ -65,14 +65,14 @@ class _CategoryIndexPageState extends State<CategoryIndexPage> {
                                         .categorys[current]
                                         .subcategories
                                         .length,
-                                    itemBuilder: (context, s_index) {
+                                    itemBuilder: (context, sIndex) {
                                       return RightWidgetItme(
                                           cid: categoryProvider
                                               .categorys[current].cid
                                               .toString(),
                                           item: categoryProvider
                                               .categorys[current]
-                                              .subcategories[s_index]);
+                                              .subcategories[sIndex]);
                                     }),
                               ],
                             ),

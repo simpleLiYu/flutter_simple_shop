@@ -28,7 +28,7 @@ class GoodsDetailProvider with ChangeNotifier {
           notifyListeners();
         } else {
           var dtkMsg = json.decode(resultObj.data.toString())["msg"];
-          print('${dtkMsg}');
+          print('$dtkMsg');
         }
       } else {
         print("${resultObj.msg}");
@@ -99,9 +99,9 @@ class GoodsDetailProvider with ChangeNotifier {
         if (goodInfo != null) {
         await haveGoodsFavorite({'goodsId': goodInfo.id, "userId": user.id})
               .then((res) {
-            print("${res}");
+            print("$res");
             Result result = ResultUtils.format(res);
-            print('${res}');
+            print('$res');
             if (result.code == 200) {
               this.isHaveFav = int.parse(result.data);
               notifyListeners();

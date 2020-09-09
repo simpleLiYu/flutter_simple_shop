@@ -42,6 +42,7 @@ class _WhiteIndexState extends State<WhiteIndex> {
 
   @override
   void initState() {
+    super.initState();
     _focusNode.addListener((){
       if(!_focusNode.hasFocus){
         print("失去焦点");
@@ -158,7 +159,7 @@ class _WhiteIndexState extends State<WhiteIndex> {
             print("上传图片");
             //insertText("<img src='http://picbed.demo.saintic.com/static/upload/huang/2020/05/28/15906484463213831.jpg' width='${1440}' height='400'/>");
             File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-            print('加载到的图片:${image}');
+            print('加载到的图片:$image');
             Rect wh = await ImageUtil().getImageWH(localUrl: image.path);
             print("宽:${wh.width}+高:${wh.height}");
             insertText("<img src='http://picbed.demo.saintic.com/static/upload/huang/2020/05/28/15906580683243296.jpg' width='${wh.width}' height='${wh.height}'/>");
@@ -261,7 +262,7 @@ class _WhiteIndexState extends State<WhiteIndex> {
         newText = value.text.replaceRange(start, end, text);
         end = start;
       }
-      print("end:${end},");
+      print("end:$end,");
 
       _textEditingController.value = value.copyWith(
           text: newText,

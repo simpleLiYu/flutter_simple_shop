@@ -23,7 +23,7 @@ import './ddq.dart';
 import 'component/hodgepodge_widget.dart';
 
 class IndexHome extends StatefulWidget {
-  ScrollController mController;
+  final ScrollController mController;
 
   IndexHome({Key key, this.mController}) : super(key: key);
 
@@ -32,7 +32,7 @@ class IndexHome extends StatefulWidget {
 }
 
 class _IndexHomeState extends State<IndexHome>
-    with AutomaticKeepAliveClientMixin, TickerProviderStateMixin {
+    with TickerProviderStateMixin {
 //   状态管理
   CarouselProviderModal carouselProviderModal;
   DtkIndexGoodsModal dtkIndexGoodsModal;
@@ -51,6 +51,7 @@ class _IndexHomeState extends State<IndexHome>
 
   @override
   void initState() {
+    super.initState();
     tabController = TabController(length: 1, vsync: this);
     this._initAliBC();
   }
@@ -181,6 +182,7 @@ class _IndexHomeState extends State<IndexHome>
 
   @override
   void didChangeDependencies() async {
+    super.didChangeDependencies();
     final carouselProviderModal = Provider.of<CarouselProviderModal>(context);
     final dtkIndexGoodsModal = Provider.of<DtkIndexGoodsModal>(context);
     final categoryProvider = Provider.of<CategoryProvider>(context);
@@ -192,16 +194,12 @@ class _IndexHomeState extends State<IndexHome>
 
   @override
   void dispose() {
+    super.dispose();
     indexGoodsRepository.dispose();
   }
 
 
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
-
-  void loadDatas(
+  Future<void> loadDatas(
       {CarouselProviderModal carouselProviderModal,
       DtkIndexGoodsModal dtkIndexGoodsModal,
       CategoryProvider categoryProvider}) async {

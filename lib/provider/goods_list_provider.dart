@@ -18,9 +18,9 @@ class GoodsListProvider extends BaseProvider {
   String cids = "";
   String subcid = "";
 
-  LoadList() async {
+  loadList() async {
 //    changeLoadingState(true);
-  print("pageId:${page},sort:${desc[currentIndex]},brand:${brand},subcid:${this.subcid},cids:${cids}");
+  print("pageId:$page,sort:${desc[currentIndex]},brand:$brand,subcid:${this.subcid},cids:$cids");
     await getGoodsListFuture({"pageId":page,"sort":desc[currentIndex],"brand":brand,"cids":cids,"subcid":subcid,"pageSize":10}).then((res) {
       Result result = ResultUtils.format(res);
       if(result.data!=null && result.code==200){
@@ -43,14 +43,14 @@ class GoodsListProvider extends BaseProvider {
   }
 
   reFresh() async{
-   this.page==1;
+   // this.page==1;
    this.goods = [];
-   await LoadList();
+   await loadList();
   }
 
   nextPage(){
     this.page++;
-    LoadList();
+    loadList();
   }
 
   subcidSele(subcid) async{

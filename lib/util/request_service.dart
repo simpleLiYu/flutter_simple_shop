@@ -90,9 +90,9 @@ Future findOrderList(data){
   return post(Api.API_ORDER+"/list",data: data);
 }
 
-// 获取好订单详情接口,需要传入一个商品id:goods_id
-Future getHaodankuDetailInfo(String goods_id){
-  return post(Api.API_HDK_DETAIL,data: {"goods_id":goods_id});
+// 获取好订单详情接口,需要传入一个商品id:goodsId
+Future getHaodankuDetailInfo(String goodsId){
+  return post(Api.API_HDK_DETAIL,data: {"goods_id":goodsId});
 }
 
 // 首页网格菜单
@@ -112,4 +112,5 @@ Future<ShopInfo> getShopInfo(String shopName) async {
       return null;
     }
   });
+  return null;
 }

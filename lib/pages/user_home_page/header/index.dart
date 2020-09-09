@@ -9,18 +9,19 @@ import 'package:fsuper/fsuper.dart';
 
 // 头部容器
 class HeaderIndex extends StatelessWidget {
-  User user;
+  final User user;
 
   HeaderIndex(this.user);
 
-  // 容器高度
-  final int containerHeight = 1000;
-  TextStyle subTitleStyle =
-      TextStyle(color: Colors.black26, fontSize: ScreenUtil().setSp(50));
+
 
   @override
   Widget build(BuildContext context) {
-    print("${user}");
+    // 容器高度
+    final int containerHeight = 1000;
+    TextStyle subTitleStyle =
+    TextStyle(color: Colors.black26, fontSize: ScreenUtil().setSp(50));
+    print("$user");
     return Container(
       height: ScreenUtil().setHeight(containerHeight),
       child: Stack(

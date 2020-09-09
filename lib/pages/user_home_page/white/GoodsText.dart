@@ -65,7 +65,7 @@ class GoodsText extends SpecialText{
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("${dtitle}",
+                      Text("$dtitle",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis
                           ,style: TextStyle(
@@ -80,12 +80,12 @@ class GoodsText extends SpecialText{
                         textColor: Colors.white,
                         spans: [
                           TextSpan(
-                            text: '${actualPrice}券后 ',
+                            text: '$actualPrice券后 ',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w800),
                           ),
                           TextSpan(
-                            text: '${discounts}折',
+                            text: '$discounts折',
                             style: TextStyle(fontSize: 11),
                           ),
                         ],

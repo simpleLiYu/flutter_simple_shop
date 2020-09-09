@@ -5,29 +5,25 @@ import '../constant/color.dart';
 
 // 券后价小部件
 class CouponPriceWidget extends StatelessWidget {
-  String actualPrice; //  券后价
-  double originalPrice; //  商品原价
-  double couponPriceFontSize; // 券后价文本大小
-  double originalPriceFontSize; // 商品原价文本大小
-  double interval; // 券后价和原价之间的间隔距离
-  bool showDiscount; // 是否显示折扣
+  final String actualPrice; //  券后价
+  final double originalPrice; //  商品原价
+  final double couponPriceFontSize; // 券后价文本大小
+  final double originalPriceFontSize; // 商品原价文本大小
+  final double interval; // 券后价和原价之间的间隔距离
+  final bool showDiscount; // 是否显示折扣
 
   CouponPriceWidget(
       {@required this.actualPrice,
       @required this.originalPrice,
-      this.couponPriceFontSize,
+      this.couponPriceFontSize = 80.0,
       this.originalPriceFontSize,
       this.interval,
       this.showDiscount});
 
-  double couponPriceSymbolFontSize; // 券后价 人民币符号 字体大小
 
   @override
   Widget build(BuildContext context) {
-    if (couponPriceFontSize == null) {
-      couponPriceFontSize = 80.0;
-    }
-    couponPriceSymbolFontSize = couponPriceFontSize * 0.75;
+     double couponPriceSymbolFontSize = couponPriceFontSize * 0.75;
     return Container(
       child: Row(
         children: <Widget>[
@@ -58,7 +54,7 @@ class CouponPriceWidget extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(left: interval ?? 10.0),
             child: Text(
-              "¥${originalPrice}",
+              "¥$originalPrice",
               style: TextStyle(
                   decoration: TextDecoration.lineThrough,
                   color: Colors.black38,

@@ -10,7 +10,7 @@ import '../../../repository/order_respository.dart';
 
 class MyOrderHomePage extends StatefulWidget {
 
-  String stype; // 审核类型
+  final String stype; // 审核类型
 
   MyOrderHomePage({this.stype});
 
@@ -53,11 +53,11 @@ class _MyOrderHomePageState extends State<MyOrderHomePage> {
                       if(item.stype==1){
                         stateTip = "审核通过";
                         stateTipColor = Colors.green;
-                        Icon stateIcon = Icon(Icons.check,color: stateTipColor,);
+                        // Icon stateIcon = Icon(Icons.check,color: stateTipColor,);
                       }else if(item.stype==2){
                         stateTip = "审核失效";
                         stateTipColor = Colors.deepOrange;
-                        Icon stateIcon = Icon(Icons.clear,color: stateTipColor,);
+                        // Icon stateIcon = Icon(Icons.clear,color: stateTipColor,);
                       }
                       return Container(
                         padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(50),vertical: ScreenUtil().setHeight(30)),
@@ -76,12 +76,12 @@ class _MyOrderHomePageState extends State<MyOrderHomePage> {
                                   children: <Widget>[
                                     stateIcon,
                                     SizedBox(width: ScreenUtil().setWidth(20),),
-                                    Text("${stateTip}",style: TextStyle(color: stateTipColor),),
+                                    Text("$stateTip",style: TextStyle(color: stateTipColor),),
                                   ],
                                 )
                               ],
                             ),
-                            Text("提交时间:${createTimeStr}"),
+                            Text("提交时间:$createTimeStr"),
                           ],
                         ),
                       );

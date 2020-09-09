@@ -18,7 +18,7 @@ import 'menu_data.dart';
 
 // 9.9包邮专区
 class JiujiuIndexHome extends StatefulWidget {
-  ScrollController scrollController;
+  final ScrollController scrollController;
 
   JiujiuIndexHome({this.scrollController});
 
@@ -61,8 +61,9 @@ class _JiujiuIndexHomeState extends State<JiujiuIndexHome>
 
   @override
   void initState() {
+    super.initState();
     this.jiuJiuRepository = JiuJiuRepository("-1");
-    this.tabController = TabController(length: menu_text.length, vsync: this);
+    this.tabController = TabController(length: menuText.length, vsync: this);
   }
 
   @override
@@ -101,7 +102,7 @@ class _JiujiuIndexHomeState extends State<JiujiuIndexHome>
                   onTap: (index) async {
                     setState(() {
                       jiuJiuRepository =
-                          JiuJiuRepository(menu_ids[index].toString());
+                          JiuJiuRepository(menuIds[index].toString());
                     });
                     await jiuJiuRepository.refresh(true);
                   },
@@ -113,7 +114,7 @@ class _JiujiuIndexHomeState extends State<JiujiuIndexHome>
                         width: 2,
                         color: Colors.pinkAccent,
                       )),
-                  tabs: menu_text.map((item) {
+                  tabs: menuText.map((item) {
                     return Tab(text: item);
                   }).toList(),
                   labelColor: Colors.pinkAccent,
@@ -139,7 +140,7 @@ class _JiujiuIndexHomeState extends State<JiujiuIndexHome>
     );
   }
 
-  SmartRefresher buildSmartRefresher_old(NineGoodsProvider nineGoodsProvider) {
+  SmartRefresher buildSmartRefresherOld(NineGoodsProvider nineGoodsProvider) {
     return SmartRefresher(
       controller: _refreshController,
       onRefresh: _onRefresh,

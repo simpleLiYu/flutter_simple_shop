@@ -104,7 +104,9 @@ class _IndexState extends State<FavoriteIndexHome> {
                                     },
                                   ),
                                   Text(userProvider.editFavoriteIds.length ==
-                                      userProvider.goods.length?"取消全选":"全选")
+                                          userProvider.goods.length
+                                      ? "取消全选"
+                                      : "全选")
                                 ],
                               ),
                             ),
@@ -116,22 +118,21 @@ class _IndexState extends State<FavoriteIndexHome> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
                                     FSuper(
-                                      text:"已选 ",
+                                      text: "已选 ",
                                       textColor: Colors.grey,
                                       spans: [
                                         TextSpan(
-                                          text: userProvider.editFavoriteIds.length.toString(),
-                                          style: TextStyle(
-                                            fontSize: ScreenUtil().setSp(70),
-                                            color: Colors.black
-                                          )
-                                        ),
-                                        TextSpan(
-                                          text: " 项",
+                                            text: userProvider
+                                                .editFavoriteIds.length
+                                                .toString(),
                                             style: TextStyle(
-                                                color: Colors.grey
-                                            )
-                                        )
+                                                fontSize:
+                                                    ScreenUtil().setSp(70),
+                                                color: Colors.black)),
+                                        TextSpan(
+                                            text: " 项",
+                                            style:
+                                                TextStyle(color: Colors.grey))
                                       ],
                                     ),
                                     FButton(
@@ -169,7 +170,7 @@ class _IndexState extends State<FavoriteIndexHome> {
                                                                   "确定"),
                                                               onPressed:
                                                                   () async {
-                                                                await userProvider
+                                                                userProvider
                                                                     .editFavoriteIds
                                                                     .forEach(
                                                                         (id) async {
@@ -236,6 +237,7 @@ class _IndexState extends State<FavoriteIndexHome> {
 
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     UserProvider userProvider = Provider.of<UserProvider>(context);
     GoodsDetailProvider goodsDetailProvider =
         Provider.of<GoodsDetailProvider>(context);

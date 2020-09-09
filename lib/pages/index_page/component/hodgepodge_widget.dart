@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:date_format/date_format.dart';
 import 'package:demo1/fluro/NavigatorUtil.dart';
 import 'package:demo1/modals/Result.dart';
 import 'package:demo1/pages/detail_page/hdk/model/index_grid_apecial_data_model.dart';
@@ -366,7 +365,7 @@ class _HodgepodgeWidgetState extends State<HodgepodgeWidget> {
           style: TextStyle(fontSize: ScreenUtil().setSp(40), color: Colors.red)
         ),
         TextSpan(
-          text: "${price}",
+          text: "$price",
           style: TextStyle(fontSize: ScreenUtil().setSp(50), color: Colors.red)
         )
       ],
@@ -460,7 +459,7 @@ class _HodgepodgeWidgetState extends State<HodgepodgeWidget> {
             dataModel = indexGridSpecialDataModel;
           });
         } catch (e, stack) {
-          print("报错信息:${e},${stack}");
+          print("报错信息:$e,$stack");
         }
       } else {
         SystemToast.show(result.msg);

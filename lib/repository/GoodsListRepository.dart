@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:demo1/modals/Result.dart';
 import 'package:demo1/util/result_obj_util.dart';
-import 'package:flutter/material.dart';
 import 'package:demo1/modals/goods_list_modal.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 import '../util/request_service.dart';
@@ -14,12 +13,12 @@ class GoodsListRepository extends LoadingMoreBase<GoodsItem> {
   int pageSize = 50; // 每页条数，默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
 
   //外面传进来的参数
-  String g_sort;
+  String gSort;
   String brand;
   String cids;
   String subcid;
 
-  GoodsListRepository({this.g_sort, this.brand, this.cids, this.subcid});
+  GoodsListRepository({this.gSort, this.brand, this.cids, this.subcid});
 
   @override
   bool get hasMore => _hasMore;
@@ -38,10 +37,10 @@ class GoodsListRepository extends LoadingMoreBase<GoodsItem> {
   Future<bool> loadData([bool isloadMoreAction = false]) async {
     bool isSuccess = false;
     print(
-        "正在获取第${pageindex}页数据,排序:${g_sort},品牌:${brand},主类目:${cids},子类目:${subcid}");
+        "正在获取第$pageindex页数据,排序:$gSort,品牌:$brand,主类目:$cids,子类目:$subcid");
     await getGoodsListFuture({
       "pageId": pageindex,
-      "sort": g_sort,
+      "sort": gSort,
       "brand": brand,
       "cids": cids,
       "subcid": subcid,

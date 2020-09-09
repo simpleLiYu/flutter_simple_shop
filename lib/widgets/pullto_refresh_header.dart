@@ -11,15 +11,15 @@ import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
     //    print("------------");
     var offset = info?.dragOffset ?? 0.0;
     var mode = info?.mode;
-    Widget refreshWiget = Container();
+    // Widget refreshWiget = Container();
     //it should more than 18, so that RefreshProgressIndicator can be shown fully
-    if (info?.refreshWiget != null &&
-        offset > 18.0 &&
-        mode != RefreshIndicatorMode.error) {
-      refreshWiget = info.refreshWiget;
-    }
+    // if (info?.refreshWiget != null &&
+    //     offset > 18.0 &&
+    //     mode != RefreshIndicatorMode.error) {
+    //   refreshWiget = info.refreshWiget;
+    // }
 
-    Widget child = null;
+    Widget child;
     if (mode == RefreshIndicatorMode.error) {
       child = GestureDetector(
           onTap: () {
@@ -69,7 +69,7 @@ import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
               color: Colors.transparent,
               alignment: Alignment.center,
               child: Text(
-                "${modeStr}" ?? "",
+                "$modeStr" ?? "",
                 style: TextStyle(
                     fontSize: ScreenUtil().setSp(50),
                     inherit: false,

@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SortWidget extends StatelessWidget {
+  final dynamic onTap;
+  final String title;
+  final bool current;
+  final Widget icon;
 
-  dynamic onTap;
-  String title;
-  bool current;
-  Widget icon;
-
-  SortWidget({this.onTap, this.title, this.current,this.icon}); //是否选中状态
-
+  SortWidget({this.onTap, this.title, this.current, this.icon}); //是否选中状态
 
   @override
   Widget build(BuildContext context) {
     return Tab(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(title),
-          icon!=null ? icon : Container()
-        ],
-      )
-    );
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[Text(title), icon != null ? icon : Container()],
+    ));
   }
 }
-
 
 //return Tab(
 //child: InkWell(

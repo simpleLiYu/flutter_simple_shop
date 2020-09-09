@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../modals/user_model.dart';
 import "../modals/user_data.dart";
@@ -19,12 +18,12 @@ class UserUtil{
     return userData.user;
   }
 
-  static void setUserInfo(String json) async {
+  static Future<void> setUserInfo(String json) async {
     SharedPreferences _refs = await refs;
     _refs.setString("userInfo", json);
   }
 
-  static void removeUserInfoData() async {
+  static Future<void> removeUserInfoData() async {
     SharedPreferences _refs = await refs;
     _refs.remove("userInfo");
   }
