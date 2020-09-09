@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 final String BASE_URL = "http://itbug.shop:8081/api/"; // 网络请求
 final String LOCALHOST_RUL = "http://192.168.43.44:8081/api/"; // 本地请求
 final String LOCALHOST_RUL2 = "http://192.168.43.185:8081/api/"; // 本地请求2
-final String LOCALHOST_RUL3 = "http://192.168.199.118:8081/api/"; // 本地请求2(公司电脑)
+final String LOCALHOST_RUL3 = "http://192.168.199.118:8088/api/"; // 本地请求2(公司电脑)
 final String NET = "http://itbug.free.idcfengye.com/api/"; // 隧道
 final String t = "http://192.168.0.105:8081/api/"; //
 

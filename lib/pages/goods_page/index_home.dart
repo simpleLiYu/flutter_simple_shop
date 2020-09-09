@@ -441,7 +441,7 @@ class _GoodsListPageState extends State<GoodsListPage>
               color: Colors.transparent,
               alignment: Alignment.center,
               child: Text(
-                "${modeStr}" ?? "",
+                "$modeStr" ?? "",
                 style: TextStyle(
                     fontSize: ScreenUtil().setSp(50),
                     inherit: false,
