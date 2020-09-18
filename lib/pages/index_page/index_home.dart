@@ -1,6 +1,11 @@
+import 'dart:ui';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:demo1/fluro/NavigatorUtil.dart';
 import 'package:demo1/modals/dtkCategorys.dart';
 import 'package:demo1/modals/goods_list_modal.dart';
+import 'package:demo1/provider/app_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:demo1/provider/category_provider.dart';
 import 'package:demo1/repository/IndexGoodsRepository.dart';
 import 'package:demo1/widgets/RoundUnderlineTabIndicator.dart';
@@ -9,7 +14,7 @@ import 'package:demo1/widgets/my_clipper.dart';
 import 'package:demo1/widgets/pullto_refresh_header.dart';
 import 'package:demo1/widgets/waterfall_goods_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
@@ -32,7 +37,7 @@ class IndexHome extends StatefulWidget {
 }
 
 class _IndexHomeState extends State<IndexHome>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin,AfterLayoutMixin<IndexHome> {
 //   状态管理
   CarouselProviderModal carouselProviderModal;
   DtkIndexGoodsModal dtkIndexGoodsModal;
@@ -308,61 +313,32 @@ class _IndexHomeState extends State<IndexHome>
             child: AnimatedContainer(
               duration: Duration(milliseconds: 1000),
               height: ScreenUtil().setHeight(carouselHeight+450),
-              color: carouselISLoaded ? cpm.curColor : Colors.white,
+              // color: carouselISLoaded ? cpm.curColor : Colors.white,
+              color: Colors.white,
             )),
         Column(
           children: <Widget>[
             // appbar
-            AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              title: Container(
-                height: ScreenUtil().setHeight(140),
-                child: TextField(
-                  textAlignVertical: TextAlignVertical.center,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    hintText: '输入商品名或者宝贝标题搜索',
-                    border: InputBorder.none,
-                    alignLabelWithHint: true,
-                    filled: true,
-                    fillColor: Colors.white,
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                    ),
-                    hintStyle: TextStyle(
-                      height: 1,
-                    ),
-                  ),
-                  style: TextStyle(height: 1, color: Colors.black),
-                ),
+            // _buildTopBar(), // 老版本
+            Container(
+              margin: EdgeInsets.only(top: MediaQueryData.fromWindow(window).padding.top),
+              padding: EdgeInsets.symmetric(horizontal: 50.w,vertical: 50.h),
+              decoration: BoxDecoration(
+                color: Colors.white
               ),
-              actions: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(left: 5.0, right: 10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  SvgPicture.asset("assets/svg/message.svg",width: 80.w,height: 80.h,color: Colors.grey,),
+                  Container(child: Row(
                     children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          //跳转到搜索页面
-                          Navigator.pushNamed(context, 'search');
-                        },
-                        child: Icon(
-                          Icons.message,
-                          size: ScreenUtil().setSp(80),
-                        ),
-                      ),
-                      Text(
-                        "消息",
-                        style: TextStyle(fontSize: ScreenUtil().setSp(45)),
-                      )
+                      Image.asset("assets/images/logo.png",width: 80.w,height: 80.h,),SizedBox(width: 10.w,),
+                      Text("典典的小卖部",style: TextStyle(fontSize: 55.sp),)
                     ],
-                  ),
-                )
-              ],
+                  ),),
+                  SvgPicture.asset("assets/svg/search.svg",width: 80.w,height: 80.h,color: Colors.grey),
+                ],
+              ),
             ),
 
             carouselISLoaded && categortListIsLoaded
@@ -382,5 +358,67 @@ class _IndexHomeState extends State<IndexHome>
         ),
       ],
     );
+  }
+
+  AppBar _buildTopBar() {
+    return AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: Container(
+              height: ScreenUtil().setHeight(140),
+              child: TextField(
+                textAlignVertical: TextAlignVertical.center,
+                textAlign: TextAlign.left,
+                decoration: InputDecoration(
+                  hintText: '输入商品名或者宝贝标题搜索',
+                  border: InputBorder.none,
+                  alignLabelWithHint: true,
+                  filled: true,
+                  fillColor: Colors.white,
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey,
+                  ),
+                  hintStyle: TextStyle(
+                    height: 1,
+                  ),
+                ),
+                style: TextStyle(height: 1, color: Colors.black),
+              ),
+            ),
+            actions: <Widget>[
+              Container(
+                margin: EdgeInsets.only(left: 5.0, right: 10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
+                        //跳转到搜索页面
+                        Navigator.pushNamed(context, 'search');
+                      },
+                      child: Icon(
+                        Icons.message,
+                        size: ScreenUtil().setSp(80),
+                      ),
+                    ),
+                    Text(
+                      "消息",
+                      style: TextStyle(fontSize: ScreenUtil().setSp(45)),
+                    )
+                  ],
+                ),
+              )
+            ],
+          );
+  }
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    // TODO: implement afterFirstLayout
+    /// 加载配置文件
+    /// 首页 - 分类
+    Provider.of<AppProvider>(context,listen: false).loadAppConfig();
   }
 }
